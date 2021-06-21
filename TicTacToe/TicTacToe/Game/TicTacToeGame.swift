@@ -16,6 +16,7 @@ class TicTacToeGame{
             throw TicTacToePlayError.notValidSelection(message: "This option is not valid.")
         }
         positions[position] = isFirstPlayer ? "X" : "O"
+        isFirstPlayer = !isFirstPlayer
         return .playing
     }
     
