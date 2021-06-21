@@ -25,7 +25,7 @@ class TicTacToeTests: XCTestCase {
     func testInit() {
         let positions = [String]()
         let isFirstPlayer = true
-        let gameStatus = GameStatus.playing
+        let gameStatus = GameState.playing
         
         XCTAssertEqual(sut.positions, positions)
         XCTAssertEqual(sut.isFirstPlayer, isFirstPlayer)
@@ -35,7 +35,7 @@ class TicTacToeTests: XCTestCase {
     func testReset() {
         let positions = [String](repeating: "", count: 9)
         let isFirstPlayer = true
-        let gameStatus = GameStatus.playing
+        let gameStatus = GameState.playing
         
         XCTAssertNoThrow(sut.resetValues())
         XCTAssertEqual(sut.positions, positions)
@@ -55,18 +55,60 @@ class TicTacToeTests: XCTestCase {
         XCTAssertThrowsError(try sut.playTurn(position: 0))
     }
     
-    func testPlayTurnWin() {
+    func testPlayTurnWinHorizontal() {
         sut.resetValues()
-        sut.positions = ["X", "X", "", "O", "O", "X", "X", "X", "" ]
-        let status = try! sut.playTurn(position: 2)
-        XCTAssertEqual(status, GameStatus.win)
+        sut.positions = ["X", "X", "", "", "", "", "", "", "" ]
+        let statusFirstRow = try! sut.playTurn(position: 2)
+        
+        sut.resetValues()
+        sut.positions = ["", "", "", "X", "X", "", "", "", "" ]
+        let statusSecondRow = try! sut.playTurn(position: 5)
+        
+        sut.resetValues()
+        sut.positions = ["", "", "", "", "", "", "X", "X", "" ]
+        let statusThirdRow = try! sut.playTurn(position: 8)
+        
+        XCTAssertEqual(statusFirstRow, GameState.win)
+        XCTAssertEqual(statusSecondRow, GameState.win)
+        XCTAssertEqual(statusThirdRow, GameState.win)
+    }
+    
+    func testPlayTurnWinVertical() {
+        sut.resetValues()
+        sut.positions = ["X", "", "", "X", "", "", "", "", "" ]
+        let statusFirstColumn = try! sut.playTurn(position: 6)
+        
+        sut.resetValues()
+        sut.positions = ["", "X", "", "", "X", "", "", "", "" ]
+        let statusSecondColumn = try! sut.playTurn(position: 7)
+        
+        sut.resetValues()
+        sut.positions = ["", "", "X", "", "", "X", "", "", "" ]
+        let statusThirdColumn = try! sut.playTurn(position: 8)
+        
+        XCTAssertEqual(statusFirstColumn, GameState.win)
+        XCTAssertEqual(statusSecondColumn, GameState.win)
+        XCTAssertEqual(statusThirdColumn, GameState.win)
+    }
+    
+    func testPlayTurnWinDiagonal() {
+        sut.resetValues()
+        sut.positions = ["X", "", "", "", "X", "", "", "", "" ]
+        let statusFirstDiagonal = try! sut.playTurn(position: 8)
+        
+        sut.resetValues()
+        sut.positions = ["", "", "X", "", "X", "", "", "", "" ]
+        let statusSecondDiagonal = try! sut.playTurn(position: 6)
+        
+        XCTAssertEqual(statusFirstDiagonal, GameState.win)
+        XCTAssertEqual(statusSecondDiagonal, GameState.win)
     }
     
     func testPlayTurnDraw() {
         sut.resetValues()
         sut.positions = ["", "O", "X", "X", "O", "O", "O", "X", "X" ]
         let status = try! sut.playTurn(position: 0)
-        XCTAssertEqual(status, GameStatus.draw)
+        XCTAssertEqual(status, GameState.draw)
     }
     
     func testSecondPlayerTurn() {
@@ -74,7 +116,7 @@ class TicTacToeTests: XCTestCase {
         sut.positions = ["", "", "", "", "", "", "", "", "" ]
         var status = try! sut.playTurn(position: 0)
         status = try! sut.playTurn(position: 1)
-        XCTAssertEqual(status, GameStatus.playing)
+        XCTAssertEqual(status, GameState.playing)
     }
 
 }
