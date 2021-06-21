@@ -26,12 +26,12 @@ class ViewController: UIViewController {
             sender.setTitleColor(textColor, for: .normal)
             playedPositions.append(sender)
             if gameState != .playing {
-                showAlert(title: "Game Over", text: gameState == .win ? "\(currentPlayer) WIN!!" : "It is a draw", isError: false)
+                showAlert(title: "Game Over", text: gameState == .win ? "\(currentPlayer) WIN!!!" : "The game is a draw.", isError: false)
             }
         }catch TicTacToePlayError.notValidSelection(let message){
             showAlert(title: "Oops", text: message, isError: true)
         }catch{
-            showAlert(title: "Error", text: "Unexpected error:\(error)", isError: true)
+            showAlert(title: "Error", text: "Unexpected error: \(error)", isError: true)
         }
     }
     

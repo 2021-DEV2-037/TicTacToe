@@ -24,7 +24,7 @@ class TicTacToeGame{
     /// - Returns: Game state
     func playTurn(position: Int) throws -> GameState{
         guard positions[position].isEmpty else {
-            throw TicTacToePlayError.notValidSelection(message: "This option is not valid.")
+            throw TicTacToePlayError.notValidSelection(message: "This move is not nvalid.")
         }
         positions[position] = getCurrentPlayer()
         isFirstPlayer = !isFirstPlayer
