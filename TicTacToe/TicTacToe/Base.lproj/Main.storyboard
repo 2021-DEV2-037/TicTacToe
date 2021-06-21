@@ -1,24 +1,209 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TicTacToe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KeL-V0-vno">
+                                <rect key="frame" x="47" y="288" width="320" height="320"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="72U-fh-0yS">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="Xjc-iC-Jpy"/>
+                                            <constraint firstAttribute="height" constant="100" id="nEL-Iz-HFw"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playTurn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rNL-Bs-qbR"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffb-eo-SvR">
+                                        <rect key="frame" x="110" y="0.0" width="100" height="100"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="TjS-5r-BRh"/>
+                                            <constraint firstAttribute="height" constant="100" id="V3K-uo-fBM"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playTurn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F2A-2e-IMI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LWG-OV-deZ">
+                                        <rect key="frame" x="220" y="0.0" width="100" height="100"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="biS-CG-JRh"/>
+                                            <constraint firstAttribute="height" constant="100" id="xL8-uS-cEp"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playTurn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pzy-2w-Cpp"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xEb-8r-9Bu">
+                                        <rect key="frame" x="0.0" y="110" width="100" height="100"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="Hcn-rl-JCK"/>
+                                            <constraint firstAttribute="height" constant="100" id="wzX-5x-cbC"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playTurn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MR7-gJ-lt2"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GT9-Ip-7Lv">
+                                        <rect key="frame" x="110" y="110" width="100" height="100"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="Kcg-eK-lvG"/>
+                                            <constraint firstAttribute="width" constant="100" id="ePg-jW-ePf"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playTurn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gxv-uj-rYt"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9pz-44-1OU">
+                                        <rect key="frame" x="220" y="110" width="100" height="100"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="kaT-yG-1nX"/>
+                                            <constraint firstAttribute="height" constant="100" id="tF2-H5-EJT"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playTurn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tip-5j-T9L"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pLS-GI-4Uu">
+                                        <rect key="frame" x="0.0" y="220" width="100" height="100"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="Ppc-cw-WKD"/>
+                                            <constraint firstAttribute="height" constant="100" id="zOv-Nh-QwX"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playTurn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SvC-8b-vdL"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J1M-fT-Wmd">
+                                        <rect key="frame" x="110" y="220" width="100" height="100"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="MUg-Vo-UU4"/>
+                                            <constraint firstAttribute="width" constant="100" id="f2p-DK-OEj"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playTurn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7u4-y6-J3P"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdL-H8-SLi">
+                                        <rect key="frame" x="220" y="220" width="100" height="100"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="JEX-sp-XT7"/>
+                                            <constraint firstAttribute="height" constant="100" id="ntt-Ep-gf0"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playTurn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PSf-cL-hiO"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="xEb-8r-9Bu" firstAttribute="centerY" secondItem="KeL-V0-vno" secondAttribute="centerY" id="4SR-xs-5Wy"/>
+                                    <constraint firstItem="xEb-8r-9Bu" firstAttribute="leading" secondItem="KeL-V0-vno" secondAttribute="leading" id="7FN-5N-qNX"/>
+                                    <constraint firstItem="72U-fh-0yS" firstAttribute="leading" secondItem="KeL-V0-vno" secondAttribute="leading" id="8ic-l1-x6k"/>
+                                    <constraint firstItem="ffb-eo-SvR" firstAttribute="centerX" secondItem="KeL-V0-vno" secondAttribute="centerX" id="BIC-L7-3ZA"/>
+                                    <constraint firstItem="pLS-GI-4Uu" firstAttribute="leading" secondItem="KeL-V0-vno" secondAttribute="leading" id="DYP-JO-yXf"/>
+                                    <constraint firstItem="J1M-fT-Wmd" firstAttribute="centerX" secondItem="KeL-V0-vno" secondAttribute="centerX" id="GPW-dP-ovv"/>
+                                    <constraint firstAttribute="trailing" secondItem="LWG-OV-deZ" secondAttribute="trailing" id="LLI-WL-bz8"/>
+                                    <constraint firstItem="GT9-Ip-7Lv" firstAttribute="centerY" secondItem="KeL-V0-vno" secondAttribute="centerY" id="M64-Io-Xmh"/>
+                                    <constraint firstItem="72U-fh-0yS" firstAttribute="top" secondItem="KeL-V0-vno" secondAttribute="top" id="M7Q-lo-6iR"/>
+                                    <constraint firstAttribute="bottom" secondItem="pLS-GI-4Uu" secondAttribute="bottom" id="SG6-N5-F69"/>
+                                    <constraint firstItem="GT9-Ip-7Lv" firstAttribute="centerX" secondItem="KeL-V0-vno" secondAttribute="centerX" id="YkY-aI-3dv"/>
+                                    <constraint firstAttribute="trailing" secondItem="9pz-44-1OU" secondAttribute="trailing" id="ZKl-vm-5LJ"/>
+                                    <constraint firstItem="9pz-44-1OU" firstAttribute="centerY" secondItem="KeL-V0-vno" secondAttribute="centerY" id="ctr-F0-oiX"/>
+                                    <constraint firstItem="LWG-OV-deZ" firstAttribute="top" secondItem="KeL-V0-vno" secondAttribute="top" id="dOP-oe-0lW"/>
+                                    <constraint firstItem="ffb-eo-SvR" firstAttribute="top" secondItem="KeL-V0-vno" secondAttribute="top" id="dSS-Z4-D9h"/>
+                                    <constraint firstAttribute="width" constant="320" id="ebt-lw-b1b"/>
+                                    <constraint firstAttribute="bottom" secondItem="J1M-fT-Wmd" secondAttribute="bottom" id="iRX-Us-lsM"/>
+                                    <constraint firstAttribute="trailing" secondItem="tdL-H8-SLi" secondAttribute="trailing" id="mq5-6t-35L"/>
+                                    <constraint firstAttribute="bottom" secondItem="tdL-H8-SLi" secondAttribute="bottom" id="v4s-IB-yXe"/>
+                                    <constraint firstAttribute="height" constant="320" id="yx9-Lx-DVw"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tic-Tac-Toe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJB-0g-9O6">
+                                <rect key="frame" x="119.5" y="149.5" width="175.5" height="38.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="KeL-V0-vno" firstAttribute="top" secondItem="eJB-0g-9O6" secondAttribute="bottom" constant="100" id="6g0-xT-IH3"/>
+                            <constraint firstItem="KeL-V0-vno" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GYQ-py-Wat"/>
+                            <constraint firstItem="KeL-V0-vno" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="mXP-PF-Hws"/>
+                            <constraint firstItem="eJB-0g-9O6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nfq-vU-Zpl"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-52" y="94"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

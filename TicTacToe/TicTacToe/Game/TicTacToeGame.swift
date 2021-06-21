@@ -7,7 +7,7 @@
 
 import Foundation
 
-///Traditional Tic-Tac-Toe game
+/// Traditional Tic-Tac-Toe game
 class TicTacToeGame{
     /// Possible moves that can be selected in the game
     var positions: [String] = []
@@ -26,9 +26,16 @@ class TicTacToeGame{
         guard positions[position].isEmpty else {
             throw TicTacToePlayError.notValidSelection(message: "This option is not valid.")
         }
-        positions[position] = isFirstPlayer ? "X" : "O"
+        positions[position] = getCurrentPlayer()
         isFirstPlayer = !isFirstPlayer
         return getGameState()
+    }
+    
+    /// Get the representation text of the current player
+    ///
+    /// - Returns: Representation text of the current player
+    func getCurrentPlayer() -> String {
+        return isFirstPlayer ? "X" : "O"
     }
     
     /// Check the current game status.
