@@ -10,24 +10,71 @@ import XCTest
 
 class TicTacToeTests: XCTestCase {
 
+    var sut: TicTacToeGame!
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        try super.setUpWithError()
+        sut = TicTacToeGame()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        sut = nil
+        try super.tearDownWithError()
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testInit() {
+        let positions = [String]()
+        let isFirstPlayer = true
+        let gameStatus = GameStatus.playing
+        
+        XCTAssertEqual(sut.positions, positions)
+        XCTAssertEqual(sut.isFirstPlayer, isFirstPlayer)
+        XCTAssertEqual(sut.gameStatus, gameStatus)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testReset() {
+        let positions = [String](repeating: "", count: 9)
+        let isFirstPlayer = true
+        let gameStatus = GameStatus.playing
+        
+        XCTAssertNoThrow(sut.resetValues())
+        XCTAssertEqual(sut.positions, positions)
+        XCTAssertEqual(sut.isFirstPlayer, isFirstPlayer)
+        XCTAssertEqual(sut.gameStatus, gameStatus)
+    }
+    
+    func testPlayTurn() {
+        sut.resetValues()
+        sut.positions = ["", "", "", "", "", "", "", "", "" ]
+        XCTAssertNoThrow(try sut.playTurn(position: 0))
+    }
+    
+    func testPlayTurnFail() {
+        sut.resetValues()
+        sut.positions = ["X", "", "", "", "", "", "", "", "" ]
+        XCTAssertThrowsError(try sut.playTurn(position: 0))
+    }
+    
+    func testPlayTurnWin() {
+        sut.resetValues()
+        sut.positions = ["X", "X", "", "O", "O", "X", "X", "X", "" ]
+        let status = try! sut.playTurn(position: 2)
+        XCTAssertEqual(status, GameStatus.win)
+    }
+    
+    func testPlayTurnDraw() {
+        sut.resetValues()
+        sut.positions = ["", "O", "X", "X", "O", "O", "O", "X", "X" ]
+        let status = try! sut.playTurn(position: 0)
+        XCTAssertEqual(status, GameStatus.draw)
+    }
+    
+    func testSecondPlayerTurn() {
+        sut.resetValues()
+        sut.positions = ["", "", "", "", "", "", "", "", "" ]
+        var status = try! sut.playTurn(position: 0)
+        status = try! sut.playTurn(position: 1)
+        XCTAssertEqual(status, GameStatus.playing)
     }
 
 }
