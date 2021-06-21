@@ -12,6 +12,10 @@ class TicTacToeGame{
     var gameStatus: GameStatus = .playing
     
     func playTurn(position: Int) throws -> GameStatus{
+        guard positions[position].isEmpty else {
+            throw TicTacToePlayError.notValidSelection(message: "This option is not valid.")
+        }
+        positions[position] = isFirstPlayer ? "X" : "O"
         return .playing
     }
     
@@ -26,4 +30,8 @@ enum GameStatus{
     case playing
     case win
     case draw
+}
+
+enum TicTacToePlayError: Error {
+    case notValidSelection(message: String)
 }
